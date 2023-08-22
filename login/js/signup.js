@@ -62,3 +62,7 @@ window.onload = function () {
         }
     };
 };
+
+function handleOnInput(e)  {
+    e.value = e.value.replace(/[^A-Za-z]/ig, '')
+  }

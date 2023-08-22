@@ -12,6 +12,7 @@
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="/common/js/common.js" defer></script>
     <script src="/common/js/header.js" defer></script>
+    <script src="/login/js/login.js"></script>
     <title>다잇닭</title>
 </head>
 <body>
@@ -35,7 +36,7 @@
                     <form id="login_form" name="login_form" action="" method="post" >
                         <div class="input-group">
                         <div class="input-text">
-                            <input type="text" placeholder="아이디" maxlength="100" >
+                            <input type="text" oninput="handleOnInput(this)" placeholder="아이디" maxlength="100" >
                             <input type="password" placeholder="비밀번호" maxlength="100" >
                             </div>                           
                         </div>
