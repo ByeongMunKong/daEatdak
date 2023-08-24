@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
     findidForm.addEventListener("submit", function(event) {
         event.preventDefault(); // 기본 폼 제출 동작 막기
 
-        var nameInput = findidForm.querySelector("input[placeholder='이름 입력']");
-        var emailInput = findidForm.querySelector("input[placeholder='이메일 입력']");
+        var nameInput = findidForm.querySelector("input[placeholder='이메일 입력']");
+        var emailInput = findidForm.querySelector("input[placeholder='휴대폰 번호 입력']");
 
         var fullName = nameInput.value;
         var userEmail = emailInput.value;

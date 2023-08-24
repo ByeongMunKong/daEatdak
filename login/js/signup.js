@@ -18,7 +18,7 @@ function check_pw(){
         }
  
 //이메일 선택 부분
-function selectEmail(ele){
+/*unction selectEmail(ele){
     var $ele = $(ele);
     var $email2 = $('input[name=email2]');
 
@@ -30,7 +30,7 @@ function selectEmail(ele){
         $email2.attr('readonly', true);
         $email2.val($ele.val());
     }
-}
+}*/
 
 //아이디 중복확인 
 
@@ -63,6 +63,8 @@ window.onload = function () {
     };
 };
 
+
+
 function handleOnInput(e)  {
-    e.value = e.value.replace(/[^a-z0-9]/ig, '')
+    e.value = e.value.replace(/[^a-z0-9@.]/ig, '')
   }

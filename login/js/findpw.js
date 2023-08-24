@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
     findpwForm.addEventListener("submit", function(event) {
         event.preventDefault(); // 기본 폼 제출 동작 막기
 
-        var idInput = findpwForm.querySelector("input[placeholder='아이디 입력']");
+        var idInput = findpwForm.querySelector("input[placeholder='이메일 입력']");
         var nameInput = findpwForm.querySelector("input[placeholder='이름 입력']");
-        var emailInput = findpwForm.querySelector("input[placeholder='이메일 입력']");
+        var emailInput = findpwForm.querySelector("input[placeholder='휴대폰 번호 입력']");
 
         var userID = idInput.value;
         var userName = nameInput.value;
