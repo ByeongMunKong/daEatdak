@@ -29,7 +29,6 @@ function filter_board() {
 				board_list[i].style.display = "none"
 			}
 		}
-		pagination();
 	})
   }
 
@@ -74,24 +73,13 @@ function filter() {
 			mem_info_list[i].style.display = "none"
 		}
 	}
-	
+
 	})
 }
 
 
 
 function pagination(){
-//	filter_board();
-//	filter();
-
-	$("select[name=memListNum]").change(function(){
-		req_num_row1 = $(this).val();
-		console.log($(this).val()); //value값 가져오기
-
-		$('#list001').append("<input type='hidden' value='"+req_num_row1+"' id='req_numrow1'>");
-	});
-
-
 
 	var req_num_row=10;	//한 페이지에 보여줄 리스트 수
 
@@ -109,11 +97,11 @@ function pagination(){
 	}
 
 	for(var i=1; i<num_pages; i++){	//페이지 수를 반복하여 Element코드(append)로 페이징 수 만큼 반복
-		$('.pagination').append("<div class='paging_btn'><a href='' class='btn01'>"+i+"</a></div>&nbsp;/&nbsp;");
+		$('.pagination').append("<div class='paging_btn'><a href='' class='btn01'>"+i+"</a></div>");
 		$('.pagination tr:nth-child(2)').addClass("active");
 
 		if(i == num_pages-1) {	//만약 반복한 수가 페이징 수 -1과 같으면 (최대)페이징 수 를 출력
-			$('.pagination').append("<div class='paging_btn'><a href=''>"+ num_pages +"</a></div>&nbsp;&nbsp;");
+			$('.pagination').append("<div class='paging_btn'><a href='' class='btn01'>"+ num_pages +"</a></div>");
 		}
 	
 	}
@@ -134,30 +122,16 @@ function pagination(){
 		var temp=page-1;	//전체 출력한 텍스트에 -1
 		var start=temp*req_num_row;	//	(텍스트 수 -1) *보여줄 페이지 수
 
-//		$(".paging_btn").find('a').removeClass('disabled');
-
-//		$(this).find('a').removeClass();
-
-		if(page == 1) {
-			$(this).removeClass('btn01');
-			$(this).css("color","red")
-//			$(this).not($(this)).addClass('disabled');
-		} else if(page == 2) {
-			$(this).removeClass('btn01');
-			$(this).css("color","white")
-//			$(this).not($(this)).addClass('disabled');
-		} else if(page == 3) {
-			$(this).removeClass('btn01');
-			$(this).css("color","green")
-//			$(this).not($(this)).addClass('disabled');
-		}
-
-
-
 			for(var i=0; i< req_num_row; i++){	//페이지의 리스트 수 반복
-			$tr.eq(start+i).show();
+	
+				$tr.eq(start+i).show();
+			
 		}
-
+/*		if(i == $(this).text()) {
+			$('.pagination div').css("backgroundColor","red");
+		} else {
+			$('.pagination div').css("backgroundColor","blue");
+		}*/
 	});
 
 
@@ -185,9 +159,33 @@ function pagination(){
 		}
 	});
 
-
-	
 }
+
+
+
+var paging_btn = document.getElementsByClassName(".paging_btn");
+
+function handleClick(event) {
+  console.log(event.target);
+  // console.log(this);
+  // 콘솔창을 보면 둘다 동일한 값이 나온다
+
+  console.log(event.target.classList);
+
+  if (event.target.classList[1] === "on") {
+	event.target.classList.remove("on");
+  } else {
+	for (var i = 0; i < div2.length; i++) {
+	  div2[i].classList.remove("on");
+	}
+
+	event.target.classList.add("on");
+  }
+}
+
+
+
+
 
 $('document').ready(function(){
 	pagination();
@@ -196,4 +194,8 @@ $('document').ready(function(){
 
 	$('.pagination tr:first-child').addClass("disabled");
 	
+
+
 	});
+
+

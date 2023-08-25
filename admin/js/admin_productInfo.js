@@ -14,11 +14,11 @@ function pagination(){
 	}
 
 	for(var i=1; i<num_pages; i++){	//페이지 수를 반복하여 Element코드(append)로 페이징 수 만큼 반복
-		$('.pagination').append("<div class='paging_btn'><a href=''>"+i+"</a></div>&nbsp;/&nbsp;");
+		$('.pagination').append("<div class='paging_btn'><a href='' class='btn01 "+i+"'>"+i+"</a></div>&nbsp;/&nbsp;");
 		$('.pagination li:nth-child(2)').addClass("active");
 
 		if(i == num_pages-1) {	//만약 반복한 수가 페이징 수 -1과 같으면 (최대)페이징 수 를 출력
-			$('.pagination').append("<div class='paging_btn'><a href=''>"+ num_pages +"</a></div>&nbsp;&nbsp;");
+			$('.pagination').append("<div class='paging_btn'><a href='' class='btn01'>"+ num_pages +"</a></div>&nbsp;&nbsp;");
 		}
 	
 	}
@@ -35,13 +35,22 @@ function pagination(){
 		//pagination이라는 클래스명을 가진 a태그 클릭시
 		e.preventDefault();	//매개변수의 값을 전송하지 않고 중단시킴
 		$li.hide();
-		var page=$(this).text();	// 현재a태그의 텍스트만 전체 출력
+		var page=$(this).text();	// 현재 선택한 페이징의 text값
+		var pageBtn = $('.btn01').text();
 		var temp=page-1;	//전체 출력한 텍스트에 -1
 		var start=temp*req_num_row;	//	(텍스트 수 -1) *보여줄 페이지 수
 
 		for(var i=0; i< req_num_row; i++){	//페이지의 리스트 수 반복
+
 			$li.eq(start+i).show();
+			if(i == page) {
+				$(this).addClass('on');
+			} else {
+				$(this).removeClass('on');
+			}
+	
 		}
+
 
 	});
 
