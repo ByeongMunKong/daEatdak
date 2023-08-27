@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var userEmail = emailInput.value;
 
         if (fullName === "노장" && userEmail === "club@club.com") {
-            outputText.textContent = "회원님의 아이디는 admin 입니다.";
+            outputText.textContent = "회원님의 이메일은는 admin 입니다.";
         } else {
             outputText.innerHTML = "아이디를 찾을 수 없습니다. <br>이름과 이메일을 확인해주세요.";
         }
